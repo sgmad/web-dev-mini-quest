@@ -5,7 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Level 2 - Web Dev Mini-Quest</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #050505;
+            background-image: radial-gradient(circle at center, #1a1815 0%, #000000 90%);
+            color: #8c8c8c;
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: #141414;
+            border: 1px solid #333;
+            border-radius: 4px; /* Rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 1); /* Shadow */
+        }
+
+        .card-body {
+            padding: 2.5rem;
+        }
+
+        h1, .h4 {
+            color: #bfbfbf;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .text-muted {
+            color: #5c5c5c !important;
+        }
+
+        hr {
+            border-color: #333;
+            opacity: 0.5;
+        }
+
+        .dungeon-entrance pre {
+            color: #757575;
+            font-family: monospace;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Add button hover effect */
+        .btn {
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            color: #555;
+        }
+
+        /* Button Hover Effect */
+        .btn-secondary:hover {
+            background-color: #252525;
+            color: #777;
+            border-color: #444;
+        }
+
+        .btn-dark {
+            background-color: #000;
+            border: 1px solid #4a0d0d;
+            color: #a83232;
+        }
+
+        /* Button Hover Effect */
+        .btn-dark:hover {
+            background-color: #1a0505;
+            border-color: #ff0000;
+            color: #ff0000;
+            box-shadow: inset 0 0 15px rgba(50, 0, 0, 0.8);
+        }
+        </style>
   </head>
   <body>
     <div class="container py-5">
@@ -17,10 +95,12 @@
                         <span class="badge text-bg-secondary">Level 2</span>
                         </div>
                         <h1 class="h4 fw-bold mt-2 mb-0 text-center">THE DOOR</h1>
-                        <p class="text-muted text-center mt-3 mb-0">After countless wandering between dark empty hallways and narrow twisting corridors, you finally come across a door.</p>
-                        <p class="text-muted text-center mt-1">Do you approach the door?</p>
+                        <p class="text-muted text-center mt-3 mb-0">After hours of mindless wandering through dark empty hallways and narrow twisting corridors, you finally come across a door.</p>
+                        <p class="text-muted text-center mt-2">Do you enter it?</p>
                         <hr>
-                        <div class="dungeon-entrance"><pre class="row justify-content-center">88888888888888888888888888888888888888888888888888888888888888888888888
+                        <div class="dungeon-entrance">
+                            <pre class="row justify-content-center">
+88888888888888888888888888888888888888888888888888888888888888888888888
 88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88
 88   `-.._  |    |`!  |`.  -_ -__ -_ _- _-_-  .'  |.;'   |   _.!-'|  88
 88      | `-!._  |  `;!  ;. _______________ ,'| .-' |   _!.i'     |  88
@@ -41,13 +121,16 @@
 88      |_.'|   .' | .' |/                   \  \ |  `.  | `._    |  88
 88     .'   | .'   |/|  /                     \ |`!   |`.|    `.  |  88
 88  _.'     !'|   .' | /                       \|  `  |  `.    |`.|  88
-88888888888888888888888888888888888888888888888888888888888888888888888</pre></div>
-                            <hr>
-                        <p class="text-muted text-center mt-1 mb-3"></p>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-secondary w-50" onclick="window.location.href = 'level1.html'">Retreat</button>
-                            <button class="btn btn-dark w-50" onclick="window.location.href = 'level2.html'">Approach the Door</button>
+88888888888888888888888888888888888888888888888888888888888888888888888
+                            </pre>
                         </div>
+                        <hr>
+
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-secondary w-50" onclick="window.location.href = 'level1.html'">Flee</button>
+                            <button class="btn btn-dark w-50" onclick="window.location.href = 'level3.html'">Approach the Door</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
