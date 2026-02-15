@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Level 6 - Web Dev Mini-Quest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* --- DUNGEON THEME --- */
+        body {
+            background-color: #050505;
+            background-image: radial-gradient(circle at center, #1a1815 0%, #000000 90%);
+            color: #8c8c8c;
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: #141414;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
+        }
+
+        .card-body { padding: 2.5rem; }
+
+        h1, .h4 {
+            color: #bfbfbf;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .text-muted { color: #5c5c5c !important; }
+        hr { border-color: #333; opacity: 0.5; }
+
+        /* --- STATIC MAZE STYLING --- */
+        .maze-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+            overflow-x: auto; /* Allows scrolling if screen is too narrow */
+        }
+
+        .maze-container pre {
+            color: #757575; /* Stone Grey */
+            font-family: 'Courier New', monospace;
+            /* SIZE INCREASED HERE */
+            font-size: 12px; 
+            line-height: 12px;
+            white-space: pre;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* --- BUTTONS --- */
+        .doorBtn {
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            color: #666;
+            padding: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+        
+        .doorBtn:hover {
+            background-color: #252525;
+            color: #fff;
+            border-color: #888;
+            transform: translateY(-2px);
+        }
+
+        /* --- RESULT BOX --- */
+        #result {
+            background-color: #111;
+            border: 1px solid #333;
+            color: #888;
+            min-height: 50px;
+        }
+
+        /* --- NAV BUTTONS --- */
+        .btn-secondary { background-color: #1a1a1a; border: 1px solid #333; color: #555; }
+        .btn-secondary:hover { background-color: #252525; color: #777; border-color: #444; }
+
+        .btn-dark { background-color: #000; border: 1px solid #4a0d0d; color: #a83232; }
+        .btn-dark:hover { border-color: #ff0000; color: #ff0000; box-shadow: inset 0 0 10px rgba(100,0,0,0.5); }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <div class="card shadow">
+            <div class="card-body">
+                <div class="text-center">
+                    <span class="badge text-bg-secondary">Level 6</span>
+                </div>
+                <h2 class="h4 fw-bold mt-2 text-center">The Maze</h2>
+                <p class="text-muted mb-4 text-center">
+                    It feels as though you have been walking for hours. 
+                    <br><br>
+                    Confusion. Paranoia. You don't even know who you are.
+                    <br><br>
+                    It is endless. Cruel that you had to find a maze here.
+                </p>
+
+                <div class="maze-container">
+<pre>
+.--.--.--.--.--.--.--.  .--.--.--.--.--.--.--.
+I                    I        I     I     I  I
+:  :--:  :--:--:--:--:  :--:  :  :  :  :  :  :
+I     I     I              I     I     I  I  I
+:--:  :--:  :  :--:--:--:  :--:--:--:  :  :  :
+I     I     I     I     I           I  I  I  I
+:--:--:  :--:  :--:  :  :--:--:  :  :  :  :  :
+I        I     I     I           I  I  I     I
+:  :--:--:  :--:  :  :--:  :--:--:  :  :--:--:
+I           I     I     I  I     I  I  I     I
+:--:--:--:--:  :--:--:  :--:  :--:  :  :  :  :
+I           I  I     I     I     I  I     I  I
+:  :  :  :--:  :  :  :--:  :--:  :  :--:--:  :
+I  I  I     I  I  I     I        I     I  I  I
+:  :  :--:  :  :  :--:  :--:--:--:--:  :  :  :
+I  I     I           I  I           I  I     I
+:--:--:  :--:--:--:  :--:  :--:--:  :  :--:--:
+I     I  I     I           I     I  I  I     I
+:  :  :--:  :  :  :--:--:--:  :  :  :  :  :  :
+I  I  I     I  I           I  I  I  I     I  I
+:  :  :  :--:-- :--:  :  :--:                :
+I  I     I  I  I     I        I     I  I     I
+:  :--:--:  :  :--:--:--:--:  :  :  :--:--:  :
+I        I  I     I     I     I  I  I     I  I
+:  :--:  :  :--:  :  :  :  :--:--:  :  :  :  :
+I  I     I  I     I  I     I     I  I  I  I  I
+:  :  :--:  :  :--:  :--:--:  :  :  :  :--:  :
+I  I     I  I  I              I     I     I  I
+:  :  :--:  :--:  :--:--:--:--:  :--:  :  :  :
+I  I     I        I           I     I  I     I
+:  :--:  :--:--:--:  :--:--:  :--:  :--:--:--:
+I  I     I           I        I  I           I
+:  :  :--:--:--:--:  :  :--:--:  :  :--:--:  :
+I  I     I     I     I  I     I     I     I  I
+:  :--:  :  :  :  :--:  :  :--:  :--:  :  :--:
+I  I     I  I  I     I     I     I     I     I
+:  :--:--:  :  :  :  :--:--:  :--:  :--:--:  :
+I  I        I  I  I  I     I  I        I     I
+:  :  :  :--:  :  :  :  :  :  :--:--:  :  :--:
+I     I     I  I  I  I  I  I           I  I  I
+:  :--:--:  :  :  :  :  :--:  :--:--:--:  :  :
+I     I     I     I  I  I     I        I  I  I
+:--:--:  :--:--:  :--:  :  :  :  :--:  :  :  :
+I        I     I  I     I  I  I     I  I  I  I
+:  :--:--:  :--:  :  :--:  :  :  :  :--:  :  :
+I        I     I  I        I  I  I     I  I  I
+:--:--:  :  :  :  :--:--:--:--:  :  :  :  :  :
+I     I  I  I  I     I     I     I  I  I     I
+:  :  :  :--:  :  :--:  :  :  :  :--:  :  :--:
+I  I           I        I     I  I           I
+:--:--:--:--:--:--:--:--:--:--:--:  :--:--:--:
+</pre>
+              </div>
+
+              <div class="d-flex gap-2 mb-3">
+                <button class="btn flex-fill doorBtn" data-door="1">
+                  Right! Left? Left?
+                </button>
+                <button class="btn flex-fill doorBtn" data-door="2">
+                  Straight. Left. Right?
+                </button>
+                <button class="btn flex-fill doorBtn" data-door="3">
+                  Left! Right! Straight?
+                </button>
+              </div>
+
+              <div id="result" class="alert d-flex align-items-center justify-content-center mt-3 mb-0">
+                Choose a path to escape the dungeon.
+              </div>
+
+              <hr>
+
+              <div class="d-flex gap-2">
+                <button class="btn btn-secondary w-50" onclick="window.location.href = 'level5.html'">
+                    STUMBLE BACK
+                </button>
+                <button class="btn btn-dark w-50" onclick="window.location.href = 'level1.html'">
+                    <i class="bi bi-arrow-clockwise"></i> AWAKEN (Level 1)
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <p class="text-center text-muted small mt-3 mb-0">
+            Screenshot #6: Click Door 2.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 1. HARDCODED WINNING DOOR (As per source code)
+      const winningDoor = 2;
+      
+      const result = document.getElementById("result");
+      const doorBtns = document.querySelectorAll(".doorBtn");
+
+      doorBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const picked = Number(btn.dataset.door);
+
+          if (picked === winningDoor) {
+            // SUCCESS - THE LOOP
+            result.className = "alert mt-3 mb-0 text-success fw-bold text-center";
+            result.style.backgroundColor = "#0a0a0a";
+            result.style.color = "#4cd137";
+            result.style.borderColor = "#4cd137";
+            result.innerHTML = 'You step through the door... <br> A sudden blow to the head knocks you unconscious. <br> (The cycle restarts)';
+          } else {
+            // FAILURE
+            result.className = "alert mt-3 mb-0 text-danger fw-bold text-center";
+            result.style.backgroundColor = "#0a0a0a";
+            result.style.color = "#a83232";
+            result.style.borderColor = "#a83232";
+            result.innerHTML = 'Dead end. You are lost.';
+          }
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
